@@ -2,9 +2,9 @@
 Description=JDownloader
 Documentation=http://jdownloader.org/knowledge/wiki/start
 AssertPathIsDirectory=/opt/Jdownloader2
-Requires=amazon-cloud-drive.service
-BindsTo=amazon-cloud-drive.service
-After=amazon-cloud-drive.service
+Requires= (if needed)
+BindsTo=(if needed)
+After=(if needed)
 
 
 [Service]
@@ -14,7 +14,7 @@ ExecStop=/bin/kill -TERM $MAINPID
 TimeoutStopSec=30
 SuccessExitStatus=143
 Restart=on-abort
-User=plex
+User=(if needed)
 
 [Install]
 WantedBy=default.target

@@ -1,0 +1,20 @@
+[Unit]
+Description=JDownloader
+Documentation=http://jdownloader.org/knowledge/wiki/start
+AssertPathIsDirectory=/opt/Jdownloader2
+Requires=amazon-cloud-drive.service
+BindsTo=amazon-cloud-drive.service
+After=amazon-cloud-drive.service
+
+
+[Service]
+PIDFile=/opt/Jdownloader2/JDownloader.pid
+ExecStart=/usr/bin/java -Djava.awt.headless=true -jar /opt/Jdownloader2/JDownloader.jar > /dev/null 2>&1
+ExecStop=/bin/kill -TERM $MAINPID
+TimeoutStopSec=30
+SuccessExitStatus=143
+Restart=on-abort
+User=plex
+
+[Install]
+WantedBy=default.target
